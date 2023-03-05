@@ -3,7 +3,7 @@ package check;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class mesinKasir {
+public class mesinKasir implements checkOut {
     private String idPegawai = "24";
     private Kendaraan kendaraan;
     private int durasi;
@@ -14,14 +14,8 @@ public class mesinKasir {
     }
 
     public void readData() {
-        DateTimeFormatter jamformat = DateTimeFormatter.ofPattern("HH:mm:ss");
-        DateTimeFormatter tanggalFormat = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-        LocalDateTime now = LocalDateTime.now();
-        System.out.println("Id Pegawai : " + this.idPegawai);
+        System.out.println("Pegawai : " + this.idPegawai);
         this.kendaraan.cekNoKendaraan();
-        this.kendaraan.cekJenisKendaraan();
-        System.out.println("Jam Keluar : " + jamformat.format(now.plusHours(this.durasi)));
-        System.out.println("Tanggal Keluar : " + tanggalFormat.format(now));
     }
 
     public void mobilBayar(int bayar) {
@@ -60,4 +54,17 @@ public class mesinKasir {
         return kendaraan.bayar - this.hitungBiaya();
     }
 
+    @Override
+    public void logout() {
+        Palang palang = new Palang();
+        DateTimeFormatter jamformat = DateTimeFormatter.ofPattern("HH:mm:ss");
+        DateTimeFormatter tanggalFormat = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println("Id Pegawai : " + this.idPegawai);
+        this.kendaraan.cekNoKendaraan();
+        this.kendaraan.cekJenisKendaraan();
+        System.out.println("Jam Keluar : " + jamformat.format(now.plusHours(this.durasi)));
+        System.out.println("Tanggal Keluar : " + tanggalFormat.format(now));
+        palang.Open();
+    }
 }

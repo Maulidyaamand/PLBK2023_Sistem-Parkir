@@ -3,7 +3,7 @@ package check;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class karcisMasuk implements Karcis {
+public class karcisMasuk implements checkIn {
     private Kendaraan kendaraan;
     private String jamMasuk;
     private String tanggalMasuk;
@@ -23,6 +23,7 @@ public class karcisMasuk implements Karcis {
         kameraDigital.inputDataToPC(jamformat.format(now), tanggalFormat.format(now));
     }
 
+    @Override
     public void getKarcis() {
         System.out.println("=============== Karcis ===============");
         System.out.println("Nomor Kendaraan : " + this.kendaraan.cekNoKendaraan());

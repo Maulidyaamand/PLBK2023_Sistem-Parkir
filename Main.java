@@ -6,11 +6,12 @@ class Main {
         karcisMasuk karcisMasuk = new karcisMasuk();
         karcisMasuk.insertMasuk(kendaraan1);
         karcisMasuk.getKarcis();
-
+        System.out.println("========= Proses Keluar ========= ");
         mesinKasir mesinKasir = new mesinKasir(kendaraan1, 9);
-        mesinKasir.readData();
         System.out.println("Biaya Parkir : " + mesinKasir.hitungBiaya());
         mesinKasir.mobilBayar(10000);
+
         System.out.println("Kembalian : " + mesinKasir.bayarKembalian());
+        mesinKasir.logout();
     }
 }
