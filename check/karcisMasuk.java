@@ -3,7 +3,7 @@ package check;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class karcisMasuk {
+public class karcisMasuk implements Karcis {
     private Kendaraan kendaraan;
     private String jamMasuk;
     private String tanggalMasuk;
@@ -13,7 +13,7 @@ public class karcisMasuk {
     DateTimeFormatter tanggalFormat = DateTimeFormatter.ofPattern("yyyy/MM/dd");
     LocalDateTime now = LocalDateTime.now();
 
-    public void insertMasuk(Kendaraan kendaraan){
+    public void insertMasuk(Kendaraan kendaraan) {
         this.kendaraan = kendaraan;
         this.jamMasuk = jamformat.format(now);
         this.tanggalMasuk = tanggalFormat.format(now);
@@ -23,7 +23,7 @@ public class karcisMasuk {
         kameraDigital.inputDataToPC(jamformat.format(now), tanggalFormat.format(now));
     }
 
-    public void getKarcis(){
+    public void getKarcis() {
         System.out.println("=============== Karcis ===============");
         System.out.println("Nomor Kendaraan : " + this.kendaraan.cekNoKendaraan());
         System.out.println("Jenis Kendaraan : " + this.kendaraan.cekJenisKendaraan());

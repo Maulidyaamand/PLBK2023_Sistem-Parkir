@@ -7,7 +7,8 @@ public class mesinKasir {
     private String idPegawai = "24";
     private Kendaraan kendaraan;
     private int durasi;
-    public mesinKasir(Kendaraan kendaraan, int durasiKeluar){
+
+    public mesinKasir(Kendaraan kendaraan, int durasiKeluar) {
         this.kendaraan = kendaraan;
         this.durasi = durasiKeluar;
     }
@@ -20,35 +21,35 @@ public class mesinKasir {
         this.kendaraan.cekNoKendaraan();
         this.kendaraan.cekJenisKendaraan();
         System.out.println("Jam Keluar : " + jamformat.format(now.plusHours(this.durasi)));
-        System.out.println("Tanggal Tanggal : " + tanggalFormat.format(now));
+        System.out.println("Tanggal Keluar : " + tanggalFormat.format(now));
     }
 
-    public void mobilBayar(int bayar){
+    public void mobilBayar(int bayar) {
         this.kendaraan.bayarBiaya(bayar);
     }
 
     public int hitungBiaya() {
-        if (this.kendaraan.jenisKendaraan.toString() == "motor"){
-            if (this.durasi < 5){
-                return  2000;
+        if (this.kendaraan.jenisKendaraan.toString() == "motor") {
+            if (this.durasi < 5) {
+                return 2000;
             } else if (this.durasi >= 5 && this.durasi <= 10) {
-                return  4000;
+                return 4000;
             } else {
                 return 6000;
             }
         } else if (this.kendaraan.jenisKendaraan == "mobil") {
-            if (this.durasi < 5){
-                return  5000;
+            if (this.durasi < 5) {
+                return 5000;
             } else if (this.durasi >= 5 && this.durasi <= 10) {
-                return  7000;
+                return 7000;
             } else {
                 return 10000;
             }
         } else {
-            if (this.durasi < 5){
-                return  3000;
+            if (this.durasi < 5) {
+                return 3000;
             } else if (this.durasi >= 5 && this.durasi <= 10) {
-                return  4000;
+                return 4000;
             } else {
                 return 6000;
             }
@@ -58,6 +59,5 @@ public class mesinKasir {
     public int bayarKembalian() {
         return kendaraan.bayar - this.hitungBiaya();
     }
-
 
 }
