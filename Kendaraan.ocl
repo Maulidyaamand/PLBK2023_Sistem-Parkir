@@ -1,0 +1,14 @@
+package SistemParkir
+
+context Kendaraan::Kendaraan(noKendaraan: String, price: Real)
+    post : self.noKendaraan = noKendaraan and self.price = price
+
+context Kendaraan::getPrice() : Real
+    pre  : self.price <> null
+    post : result = self.price
+
+context Kendaraan::getnoKendaraan() : String
+    pre  : self.noKendaraan <> null
+    post : result = self.noKendaraan
+
+endpackage

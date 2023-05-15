@@ -1,5 +1,5 @@
 package check;
 
-public interface checkIn {
+public interface CheckIn {
     public void getKarcis();
 }

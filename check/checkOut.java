@@ -1,5 +1,5 @@
 package check;
 
-public interface checkOut {
+public interface CheckOut {
     public void logout();
 }

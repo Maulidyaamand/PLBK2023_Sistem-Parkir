@@ -1,0 +1,16 @@
+Package SistemParkir
+
+context KarcisMausk::KarcisMasuk()
+    post : self.MesinKasir = null
+
+context KarcisMasuk::connectTo (MesinKasir : GetData)
+    post : self.MesinKasir = MesinKasir
+
+context KarcisMasuk::pressed()
+    pre  : self.MesinKasir <> null
+    post : if MesinKasir.GetData() = true
+                then print "Data telah di simpan!"
+            else
+                print "Data gagal di simpan!"
+
+endpackage

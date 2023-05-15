@@ -3,12 +3,12 @@ package check;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class mesinKasir implements checkOut {
+public class MesinKasir implements CheckOut {
     private String idPegawai = "24";
     private Kendaraan kendaraan;
     private int durasi;
 
-    public mesinKasir(Kendaraan kendaraan, int durasiKeluar) {
+    public MesinKasir(Kendaraan kendaraan, int durasiKeluar) {
         this.kendaraan = kendaraan;
         this.durasi = durasiKeluar;
     }
@@ -65,6 +65,6 @@ public class mesinKasir implements checkOut {
         this.kendaraan.cekJenisKendaraan();
         System.out.println("Jam Keluar : " + jamformat.format(now.plusHours(this.durasi)));
         System.out.println("Tanggal Keluar : " + tanggalFormat.format(now));
-        palang.Open();
+        palang.open();
     }
 }

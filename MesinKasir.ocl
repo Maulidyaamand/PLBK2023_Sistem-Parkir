@@ -1,0 +1,28 @@
+package SistemParkir
+
+context KarcisMasuk::KarcisMasuk()
+    post : self.data = null
+
+context MesinKasir::connectTo(data : DatabaseKendaraan)
+    post : self.data = data
+
+context MesinKasir::Pembayaran() : Boolean
+    init : false
+    inv  : self.Kendaraan->jenis() >= 0
+    pre  : self.isEmpty() <> true
+                and self.data <> null
+    post : if self.data.write(GetData()) = true
+                then result = true
+
+context MesinKasir::GetData() : Real
+    init : false
+    pre  : self.Kendaraan->jenis() >= 0
+    post : self.Kendaraan->write(p: jenisKendaraan, noKendaraan)
+
+context MesinKasir::addData(kendaraan : kendaraan)
+    inv  : self.data <> null
+    pre  : data <> null
+    post : data->write() - data@pre->write() = 1
+                and data->exists(p: jenisKendaran & p.noKendaraan() = kendaraan.noKendaraan())
+
+endpackage
